@@ -6,7 +6,7 @@ type HeaderType = {
 
 export const Header = (props:HeaderType) => {
     return (
-      <>Header</>
+      <>{props.title}</>
     );
 }
 

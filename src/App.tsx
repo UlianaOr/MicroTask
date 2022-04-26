@@ -7,7 +7,7 @@ function App() {
     return (
         <>
         <Header title = {"New Body"}/>
-        <Body/>
+        <Body titleFofBody ={"New Body For!"}/>
         </>
     );
 }
