@@ -6,7 +6,7 @@ import {Header}  from './site/Header';
 function App() {
     return (
         <>
-        <Header/>
+        <Header title = {"New Body"}/>
         <Body/>
         </>
     );
