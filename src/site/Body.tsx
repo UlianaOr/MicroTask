@@ -8,4 +8,4 @@ export const Body=(props:BodyType)=> {
     return (
         <>{props.titleFofBody}</>
     )
-}
+} 
