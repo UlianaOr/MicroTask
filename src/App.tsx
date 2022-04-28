@@ -10,6 +10,10 @@ function App() {
         <Header title = {"New Body"}/>
         <Body titleFofBody ={"New Body For!"}/>
         <Footer titleForFooter ={"New Footer For!"}/>
+
+        <button onClick={()=>{console.log("Hello")}}>MyYouTubeChanel-1</button>
+        <button onClick={()=>{console.log("Hello")}}>MyYouTubeChanel-2</button>
+
         </>
     );
 }
