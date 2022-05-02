@@ -5,24 +5,23 @@ import {Header}  from './site/Header';
 import {Footer}  from './site/Footer';
 
 function App() {
-    const myFirstSubscriber = () => {
-        console.log ("Hello Im Vasia")
+   
 
-    }
-    const mySecondSubscriber = () => {
-        console.log ("Yo soy Vasia")
-    }
+       const foo1 =()=>{
+           console.log (100200)
+       }
+
+       const foo2 =(num:number) =>{
+           console.log(num)
+       }
+
     return (
-        <>
-        <Header title = {"New Body"}/>
-        <Body titleFofBody ={"New Body For!"}/>
-        <Footer titleForFooter ={"New Footer For!"}/>
-
-         {/*<button onClick={()mySecondSubscribermyFirstSubscriber=>{console.log("Hello")}}>MyYouTubeChanel-1</button>*/}
-        <button onClick={myFirstSubscriber}>MyYouTubeChanel-1</button>
-        <button onClick={mySecondSubscriber}>MyYouTubeChanel-2</button>
-
-        </>
+       <div className='App'>
+           <button onClick={foo1}>1</button>
+           <button onClick={()=>foo2(100200)}>2</button>
+           
+            
+        </div>
     );
 }
 
