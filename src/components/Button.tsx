@@ -1,8 +1,12 @@
-import React from 'react';
 
-export const Button =() =>{
+import React from 'react';
+type ButtonType ={
+    name:string
+}
+
+export const Button =(props: ButtonType) =>{
     return(
-        <button> MyYouTubeChanel -1</button>
+        <button>{props.name}</button>
 
 
     )
