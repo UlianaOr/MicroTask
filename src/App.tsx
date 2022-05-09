@@ -11,12 +11,22 @@ function App () {
         console.log(a)
     }
 
+    let [b, setB]=useState (2)
+
+    const onClickHandler1=()=> {
+        setB(++a);
+        console.log (a)
+
+    }
+
 
 
 return (
     <div className='App'>
         <h1>{a}</h1>
         <button onClick={onClickHandler}>number</button>
+        <button onClick={onClickHandler1}>0</button>
+        
     </div>
 )
 }
@@ -60,5 +70,6 @@ return (
         </div>
     );
 }*/}
+
 
 export default App;
