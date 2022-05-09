@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { Button } from './components/Button';
 
 
-function App() {
+function App () {
+
+    let [a, setA]=useState (1)
+
+    const onClickHandler=()=> {
+        setA(++a);
+        console.log(a)
+    }
+
+
+
+return (
+    <div className='App'>
+        <h1>{a}</h1>
+        <button onClick={onClickHandler}>number</button>
+    </div>
+)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{/*function App() {
     const Button1Foo =(subscriber:string,age:number, addres:string)=> {
         console.log (subscriber,age,addres)
 
@@ -30,6 +59,6 @@ function App() {
             
         </div>
     );
-}
+}*/}
 
 export default App;
