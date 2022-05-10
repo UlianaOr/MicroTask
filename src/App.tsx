@@ -14,8 +14,8 @@ function App () {
     let [b, setB]=useState (2)
 
     const onClickHandler1=()=> {
-        setB(++a);
-        console.log (a)
+        setB(++b);
+        console.log (b)
 
     }
 
