@@ -4,6 +4,44 @@ import './App.css';
 
 function App () {
 
+    const [money,setMoney] = useState ([
+        {bancnote: "dolar", nominal: 100, number: " a1275869584"},
+        {bancnote: "dolar", nominal: 50, number: " a1277769584"},
+        {bancnote: "ruble", nominal: 100, number: " g1275869584"},
+        {bancnote: "dolar", nominal: 100, number: " y8885869584"},
+        {bancnote: "dolar", nominal: 50, number: " b4475869584"},
+        {bancnote: "ruble", nominal: 100, number: " a1275877784"},
+        {bancnote: "dolar", nominal: 50, number: " s1115869584"},
+        {bancnote: "ruble", nominal: 50, number: " q2275869584"},
+    ])
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*
+
     let [a, setA]=useState (1)
 
     const onClickHandler=()=> {
