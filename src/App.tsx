@@ -14,6 +14,23 @@ function App () {
         {bancnote: "dolar", nominal: 50, number: " s1115869584"},
         {bancnote: "ruble", nominal: 50, number: " q2275869584"},
     ])
+
+    let currentMoney=money.filter((filteredMoney:{})=>filteredMoney.bancnote==="ruble")
+
+
+    return(
+        <ul>
+            {money.map((objFromMoneyArr: {}, index)=>{
+                return(
+                    <li key={index}>
+                        <span>{objFromMoneyArr.bancnote}</span>
+                        <span>{objFromMoneyArr.nominal}</span>
+                        <span>{objFromMoneyArr.number}</span>
+                    </li>
+                )
+            })}
+        </ul>
+    )
 }
 
 
