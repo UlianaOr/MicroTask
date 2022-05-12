@@ -19,8 +19,9 @@ function App () {
 
 
     return(
+        <>
         <ul>
-            {money.map((objFromMoneyArr: {}, index)=>{
+            {currentMoney.map((objFromMoneyArr: {}, index)=>{
                 return(
                     <li key={index}>
                         <span>{objFromMoneyArr.bancnote}</span>
@@ -30,6 +31,9 @@ function App () {
                 )
             })}
         </ul>
+        
+
+        </>
     )
 }
 
