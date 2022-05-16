@@ -3,6 +3,16 @@ import './App.css';
 
 
 function App () {
+    
+}
+
+
+
+
+
+
+
+{/*
 
     const [money,setMoney] = useState ([
         {bancnote: "dolar", nominal: 100, number: " a1275869584"},
