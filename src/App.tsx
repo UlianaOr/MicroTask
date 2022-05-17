@@ -1,10 +1,40 @@
 import React, { useState } from 'react';
 import './App.css';
+import { Button } from './components/Button';
+
 
 
 function App () {
+    let [message, setMessage] = useState([
+        {message: "message1"},
+        {message: "message2"},
+        {message: "message3"},
+    ])
+
+    let [] = useState("")
+
+    const addMessage = (title:string) => {
+        let newMessage = {message:title};
+        setMessage([newMessage,...message])
+    }
+
+
     
+
 }
+
+   return (
+       <div className={'App'}
+
+       <Button name={'+'} callBack={()=>{}}/>
+       {message}
+       
+       return (
+           <div key={index}>{el.message}</div>
+       )
+
+       </div> 
+   )
 
 
 
