@@ -1,174 +1,95 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import { Button } from './components/Button';
+import {Todolist} from './Todolist';
+import {v1} from 'uuid';
 
+export type FilterValuesType = "all" | "active" | "completed";
 
+function App() {
 
-function App () {
-    let [message, setMessage] = useState([
-        {message: "message1"},
-        {message: "message2"},
-        {message: "message3"},
+    // let [tasks, setTasks] = useState([
+    //     {id: v1(), title: "HTML&CSS", isDone: true},
+    //     {id: v1(), title: "JS", isDone: true},
+    //     {id: v1(), title: "ReactJS", isDone: false},
+    //     {id: v1(), title: "Rest API", isDone: false},
+    //     {id: v1(), title: "GraphQL", isDone: false},
+    // ]);
+    // let [filter, setFilter] = useState<FilterValuesType>("all");
+
+    let todolistID1=v1();
+    let todolistID2=v1();
+
+    let [todolists, setTodolists] = useState<Array<todolistsType>>([
+        {id: todolistID1, title: 'What to learn', filter: 'all'},
+        {id: todolistID2, title: 'What to buy', filter: 'all'},
     ])
 
-    let [] = useState("")
+    let [tasks, setTasks] = useState({
+        [todolistID1]:[
+            {id: v1(), title: "HTML&CSS", isDone: true},
+            {id: v1(), title: "JS", isDone: true},
+            {id: v1(), title: "ReactJS", isDone: false},
+            {id: v1(), title: "Rest API", isDone: false},
+            {id: v1(), title: "GraphQL", isDone: false},
+        ],
+        [todolistID2]:[
+            {id: v1(), title: "HTML&CSS2", isDone: true},
+            {id: v1(), title: "JS2", isDone: true},
+            {id: v1(), title: "ReactJS2", isDone: false},
+            {id: v1(), title: "Rest API2", isDone: false},
+            {id: v1(), title: "GraphQL2", isDone: false},
+        ]
+    });
 
-    const addMessage = (title:string) => {
-        let newMessage = {message:title};
-        setMessage([newMessage,...message])
+
+
+    function removeTask(id: string) {
+        let filteredTasks = tasks.filter(t => t.id != id);
+        setTasks(filteredTasks);
+    }
+
+    function addTask(title: string) {
+        let task = {id: v1(), title: title, isDone: false};
+        let newTasks = [task, ...tasks];
+        setTasks(newTasks);
+    }
+
+    function changeStatus(taskId: string, isDone: boolean) {
+        let task = tasks.find(t => t.id === taskId);
+        if (task) {
+            task.isDone = isDone;
+        }
+
+        setTasks([...tasks]);
     }
 
 
-    
+    let tasksForTodolist = tasks;
 
-}
-
-   return (
-       <div className={'App'}
-
-       <Button name={'+'} callBack={()=>{}}/>
-       {message}
-       
-       return (
-           <div key={index}>{el.message}</div>
-       )
-
-       </div> 
-   )
-
-
-
-
-
-
-
-{/*
-
-    const [money,setMoney] = useState ([
-        {bancnote: "dolar", nominal: 100, number: " a1275869584"},
-        {bancnote: "dolar", nominal: 50, number: " a1277769584"},
-        {bancnote: "ruble", nominal: 100, number: " g1275869584"},
-        {bancnote: "dolar", nominal: 100, number: " y8885869584"},
-        {bancnote: "dolar", nominal: 50, number: " b4475869584"},
-        {bancnote: "ruble", nominal: 100, number: " a1275877784"},
-        {bancnote: "dolar", nominal: 50, number: " s1115869584"},
-        {bancnote: "ruble", nominal: 50, number: " q2275869584"},
-    ])
-
-    let currentMoney=money.filter((filteredMoney:{})=>filteredMoney.bancnote==="ruble")
-
-
-    return(
-        <>
-        <ul>
-            {currentMoney.map((objFromMoneyArr: {}, index)=>{
-                return(
-                    <li key={index}>
-                        <span>{objFromMoneyArr.bancnote}</span>
-                        <span>{objFromMoneyArr.nominal}</span>
-                        <span>{objFromMoneyArr.number}</span>
-                    </li>
-                )
-            })}
-        </ul>
-        
-
-        </>
-    )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*
-
-    let [a, setA]=useState (1)
-
-    const onClickHandler=()=> {
-        setA(++a);
-        console.log(a)
+    if (filter === "active") {
+        tasksForTodolist = tasks.filter(t => t.isDone === false);
+    }
+    if (filter === "completed") {
+        tasksForTodolist = tasks.filter(t => t.isDone === true);
     }
 
-    let [b, setB]=useState (2)
-
-    const onClickHandler1=()=> {
-        setB(++b);
-        console.log (b)
-
+    function changeFilter(value: FilterValuesType) {
+        setFilter(value);
     }
 
 
-
-return (
-    <div className='App'>
-        <h1>{a}</h1>
-        <button onClick={onClickHandler}>number</button>
-        <button onClick={onClickHandler1}>0</button>
-        
-    </div>
-)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-{/*function App() {
-    const Button1Foo =(subscriber:string,age:number, addres:string)=> {
-        console.log (subscriber,age,addres)
-
-    }
-    
-    const Button2Foo =(subscriber:string)=> {
-        console.log (subscriber)
-
-    
-    }
-
-    const Button3Foo =() => {
-        console.log()
-    }
-   
-
-       
     return (
-       <div className='App'>
-          
-            <Button name={'MyYouTubeChanel-1'} callBack ={()=>Button1Foo("I am Uliana",21, "Live in Valencia")}/>
-           <Button name={'MyYouTubeChanel-2'} callBack ={()=>Button2Foo("I am Jane")}/>
-           <Button name={'IamStupidButton'} callBack ={()=>Button3Foo()}/>
-            
+        <div className="App">
+            <Todolist title="What to learn"
+                      tasks={tasksForTodolist}
+                      removeTask={removeTask}
+                      changeFilter={changeFilter}
+                      addTask={addTask}
+                      changeTaskStatus={changeStatus}
+                      filter={filter}
+            />
         </div>
     );
-}*/}
-
+}
 
 export default App;
